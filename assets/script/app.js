@@ -4,7 +4,7 @@
 // 4. insert data to firbase
 
 
-  // Your web app's Firebase configuration
+//   Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyBQ4x_hDcthrhi8kiGDd4sCAvqe-2eRY64",
     authDomain: "train-activity-e87e2.firebaseapp.com",
@@ -23,8 +23,10 @@
   var destination = "";
   var firstTrain = 0;
   var frequency = "";
+  
   // Capture Button Click
   $("#submit").on("click", function(event) {
+      alert("Train succesfully added!!")
     event.preventDefault();
     // Code in the logic for storing and retrieving the most recent user.
     // Dont forget to provide initial data to your Firebase database.
@@ -56,9 +58,10 @@
     // Minute Until Train
     var tMinutesTillTrain = tFrequency - tRemainder;
     console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-
+    
     // Next Train
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    nextTrain = moment(nextTrain).format("hh:mm");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
     // Code for the push
     dataRef.ref().push({
@@ -86,13 +89,7 @@
     var col5=$("<td>").text(snapshot.val().minutesAway);
     var tr=$("<tr>").append(col1, col2, col3, col4, col5);
     $("#train-list").append(tr);
-    // Change the HTML to reflect
-    // $("#name-display").text(snapshot.val().name);
-    // $("#email-display").text(snapshot.val().email);
-    // $("#age-display").text(snapshot.val().age);
-    // $("#comment-display").text(snapshot.val().comment);
-
-    // Handle the errors
+   
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
   });
