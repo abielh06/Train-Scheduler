@@ -7,11 +7,17 @@ Check out the app at  https://abielh06.github.io/Train-Scheduler/
 
 # Technologies Used
   -HTML5
+  
   -CSS3
+ 
   -JavaScript
+  
   -Bootstrap Framework
+  
   -jQuery
+  
   -Firebase Database
+  
   -Moment.js
 
 # Developer
